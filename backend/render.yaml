@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: visitor-management-api
+    runtime: node
+    rootDir: backend
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_ACCESS_SECRET
+        sync: false
+      - key: JWT_REFRESH_SECRET
+        sync: false
+      - key: ADMIN_FRONTEND_URL
+        sync: false
+      - key: WATCHMAN_FRONTEND_URL
+        sync: false
+      - key: COMPANY_TIMEZONE
+        value: Asia/Kolkata

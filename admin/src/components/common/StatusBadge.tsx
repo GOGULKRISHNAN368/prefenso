@@ -1,0 +1,1 @@
+export function StatusBadge({ status }: { status: 'INSIDE' | 'EXITED' | 'ACTIVE' | 'INACTIVE' }) { const inside = status === 'INSIDE'; const active = status === 'ACTIVE'; return <span className={`badge ${inside ? 'badge-amber' : active ? 'badge-green' : status === 'EXITED' ? 'badge-green' : 'badge-gray'}`}><span className="badge-dot" aria-hidden="true"/>{status}</span>; }

@@ -1,0 +1,10 @@
+import { Router } from 'express';
+import { authenticate } from '../../middleware/authenticate';
+import { requireRole } from '../../middleware/requireRole';
+import * as controller from './report.controller';
+export const reportRoutes = Router();
+reportRoutes.use(authenticate, requireRole('ADMIN'));
+reportRoutes.get('/summary', controller.summary);
+reportRoutes.get('/visitor-trend', controller.trend);
+reportRoutes.get('/block-summary', controller.blockSummary);
+reportRoutes.get('/export', controller.exportReport);
