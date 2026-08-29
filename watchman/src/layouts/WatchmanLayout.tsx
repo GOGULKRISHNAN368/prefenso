@@ -14,7 +14,8 @@ export function WatchmanLayout() {
   const location = useLocation();
   const title = location.pathname === '/profile' ? 'Profile' : links.find((link) => location.pathname.startsWith(link.to))?.label ?? 'Home';
 
-  return <div className="watch-shell">
+  const isDashboard = location.pathname === '/dashboard' || location.pathname === '/';
+  return <div className={`watch-shell ${isDashboard ? 'is-dashboard' : ''}`}>
     <header className="watch-header">
       <div className="watch-brand"><div className="brand-mark"><ShieldCheck size={20}/></div><div><strong>Gatewise</strong><small>Security Portal</small></div></div>
       <div className="watch-user">
