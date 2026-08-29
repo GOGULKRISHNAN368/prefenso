@@ -52,7 +52,7 @@ export function CheckIn() {
           <label className="wide-field">Notes <span className="optional">(optional)</span><textarea value={form.notes} onChange={(e) => update('notes', e.target.value)} placeholder="Add any useful context for the visit..." rows={3} /></label>
           <label className="wide-field">Visitor photo <span className="optional">(optional)</span>
             <button type="button" className={`photo-capture ${captured ? 'captured' : ''}`} onClick={() => setCaptured(true)}>
-              {captured ? <><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&auto=format&fit=crop" alt="Captured visitor" /><span className="photo-change">Retake photo</span></> : <><span className="photo-icon"><Camera size={22} /></span><strong>Capture visitor photo</strong><span>Optional · tap to use the camera</span></>}
+              {captured ? <><img src="https://images.unsplash.com/photo-1560250097001-394e540183e8?w=800&auto=format&fit=crop" alt="Captured visitor" /><span className="photo-change">Retake photo</span></> : <><span className="photo-icon"><Camera size={22} /></span><strong>Capture visitor photo</strong><span>Optional · tap to use the camera</span></>}
             </button>
           </label>
         </div>
