@@ -1,1 +1,8 @@
-export function Loading({ label = 'Loading...' }: { label?: string }) { return <div className="loading"><span className="spinner"/>{label}</div>; }
+export function Loading({ label = 'Loading...', fullScreen }: { label?: string; fullScreen?: boolean }) {
+  return (
+    <div className={`loading ${fullScreen ? 'full-screen' : ''}`}>
+      <span className="spinner"/>
+      {label}
+    </div>
+  );
+}
