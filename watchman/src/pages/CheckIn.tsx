@@ -31,7 +31,7 @@ export function CheckIn() {
 
   return <>
     <div className="page-intro">
-      <Link className="page-back" to="/profile"><ArrowLeft size={16}/>Back to profile</Link>
+      <Link className="page-back" to="/dashboard"><ArrowLeft size={16}/>Back to home</Link>
       <p className="kicker">NEW ARRIVAL</p>
       <h1>Check in a visitor</h1>
       <p>Capture the visitor’s details before granting campus access.</p>
