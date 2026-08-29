@@ -32,5 +32,5 @@ export async function blockSummary(query: Record<string, unknown>) {
 export async function exportCsv(query: Record<string, unknown>) {
   const rows = await Visitor.find(dateFilter(query)).populate('blockId', 'name code').sort({ checkInAt: -1 }).limit(10_000);
   const escape = (value: unknown) => `"${String(value ?? '').replace(/"/g, '""')}"`;
-  return ['Visitor code,Visitor name,Phone,Block,Reason,Person to meet,Check-in,Check-out,Status', ...rows.map((row: any) => [row.visitorCode, row.visitorName, row.phoneNumber, row.blockId?.name, row.reasonForVisit, row.personToMeet, row.checkInAt.toISOString(), row.checkOutAt?.toISOString(), row.status].map(escape).join(','))].join('\n');
+  return ['Visitor code,Visitor name,Phone,Company,Department,Block,Reason,Person to meet,Check-in,Check-out,Status', ...rows.map((row: any) => [row.visitorCode, row.visitorName, row.phoneNumber, row.companyName, row.department, row.blockId?.name, row.reasonForVisit, row.personToMeet, row.checkInAt.toISOString(), row.checkOutAt?.toISOString(), row.status].map(escape).join(','))].join('\n');
 }

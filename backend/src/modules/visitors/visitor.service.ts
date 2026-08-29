@@ -42,7 +42,7 @@ export async function getVisitor(id: string, blockId?: string) {
   return mapVisitor(visitor);
 }
 
-export async function checkIn(data: { visitorName: string; phoneNumber: string; reasonForVisit: string; personToMeet?: string; notes?: string }, userId: string, blockId: string, ip?: string) {
+export async function checkIn(data: { visitorName: string; phoneNumber: string; companyName?: string; department?: string; reasonForVisit: string; personToMeet?: string; notes?: string }, userId: string, blockId: string, ip?: string) {
   const block = await Block.findOne({ _id: blockId, isActive: true });
   if (!block) throw new AppError('This block is inactive and cannot accept visitors', 403);
   const visitor = await Visitor.create({ ...data, visitorCode: `V-${new Date().toISOString().slice(0, 10).replace(/-/g, '')}-${randomUUID().slice(0, 6).toUpperCase()}`, phoneNumber: data.phoneNumber.trim(), blockId, checkInAt: new Date(), status: 'INSIDE', checkedInBy: userId, checkOutAt: null, checkedOutBy: null });

@@ -5,6 +5,8 @@ export interface VisitorDocument {
   visitorCode: string;
   visitorName: string;
   phoneNumber: string;
+  companyName?: string;
+  department?: string;
   reasonForVisit: string;
   personToMeet?: string;
   blockId: Types.ObjectId;
@@ -22,6 +24,8 @@ const visitorSchema = new Schema<VisitorDocument>({
   visitorCode: { type: String, unique: true, index: true },
   visitorName: { type: String, required: true, trim: true },
   phoneNumber: { type: String, required: true, trim: true, index: true },
+  companyName: { type: String, trim: true },
+  department: { type: String, trim: true },
   reasonForVisit: { type: String, required: true, trim: true },
   personToMeet: { type: String, trim: true },
   blockId: { type: Schema.Types.ObjectId, ref: 'Block', required: true, index: true },
